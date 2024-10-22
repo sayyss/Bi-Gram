@@ -1,0 +1,17 @@
+
+### Data
+- input: text file
+- Convert words into one-hot encoded vectors
+- vocab: all the words in the text file
+
+### Model
+- Single matrix size: (vocab size, vocab size) 
+- plug one hot encoded vectors into matrix
+- pick out the index of maximum number in output
+- use pytorch's .backward() to update the matrix
+
+### main
+- plugable text file
+- able to train using simple procedure 
+- able to predict x amount of words using simple procedure 
+
