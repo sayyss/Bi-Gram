@@ -15,3 +15,12 @@
 - able to train using simple procedure 
 - able to predict x amount of words using simple procedure 
 
+
+### Flow
+- Get words from text file
+- get vocab size -> all unique words in that text file
+- create input data -> x = word[i], y = word[i+1]
+- create one hot encoded vectors from those words using pytorch's one hot encoding functionality
+- initialize model using vocab size
+- train the model on the x data, use custom loss calculation if possible or use pytorch's 
+
