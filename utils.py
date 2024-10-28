@@ -26,13 +26,9 @@ def prepare_input(words, vocab) -> Tuple[List[int]], List[int]]:
 
 # vocab: list of all unique words in the text
 def get_word_dict(vocab):
-    
-    words_to_i = {}
-    i_to_words = {}
-    
-    for i in enumerate(vocab):
-        #('word', index) <=> (index, 'word')
-        words_to_i[i[1]] = i[0]
-        i_to_words[i[0]] = i[1]
-        
-    return words_to_i, i_to_words
+
+    # Returns two dictionaries, word_to_i, i_to_word
+    # word_to_i: map word to an index {"asdas": 1}
+    # i_to_word: map index to word {1: "asdas"}
+    # return both
+
