@@ -1,3 +1,6 @@
+import torch
+
+
 class Bigram:
 
     def __init__(self, vocab):
@@ -5,6 +8,7 @@ class Bigram:
         self.matrix = torch.randn(vocab, vocab)
 
     def __call__(self, x):
+        # placeholder
 
     def forward(self, x):
         # x * matrix
