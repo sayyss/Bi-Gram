@@ -43,11 +43,21 @@ def prepare_data(text_file: str):
 
 
 def prepare_input(words, vocab) -> Tuple[List[int]], List[int]]:
+
+    word_dict = get_word_dict(vocab)
+
+    total_indexes = [word_to_i[word] for word in words if word in word_to_i]
+
+    x = total_indexes[:-1]
+    y = indices[1:]
+    
+
     # create a dictionary mapping each word to an index(use get_word_dict func)
     # total indexes: number of unique words in words
     # return pair [x,y]
     # ex: x[0] -> [5], y[0] -> [1]
     # x: word_i, y: word_i+1
+    return x, y
 
 
 # vocab: list of all unique words in the text
