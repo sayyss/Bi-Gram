@@ -29,20 +29,15 @@ def one_hot_encode(words: List[str], vocab_size: int) -> List[torch.Tensor]:
 #     print(vec)
 def prepare_data(text_file: str):
 
-    word_list = []
+    file_content = open(text_file, "r").read().split()
 
-    word = text_file.split()
-
-    for word in word:
-        if word not in word_list:
-            word_list.append(word)
-
-    vocab_size = len(sorted(list(set(word_list))))
+    word_list = sorted(list(set(file_content)))
+    vocab_size = len(word_list)
 
     return vocab_size, word_list
 
 
-def prepare_input(words, vocab) -> Tuple[List[int]], List[int]]:
+def prepare_input(words, vocab):
 
     word_dict = get_word_dict(vocab)
 
