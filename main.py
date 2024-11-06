@@ -8,9 +8,13 @@ def train(text_file):
     # train model
     # return model
 
-    "sayyam is running adassd a"
+    words, vocab = prepare_data(text_file)
 
-    vocab_size, word_list = prepare_data(text_file)
+    words_to_i, i_to_words = get_word_dict(vocab)
+    x,y = prepare_input(words, words_to_i)
 
-
+    print(len(vocab))
+    print(x[:10])
+    print(y[:10])
+train("random_input.txt")
 
