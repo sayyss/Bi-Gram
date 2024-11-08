@@ -5,11 +5,10 @@ import torch.nn.functional as F
 import re
 
 def one_hot_encode(words, vocab_size):
-    one_hot_vectors = F.one_hot(words, num_classes=vocab_size)
+    one_hot_vectors = F.one_hot(words, num_classes=vocab_size).float()
 
     # Return as list of tensors
-    return [vec for vec in one_hot_vectors]
-
+    return one_hot_vectors
 
 # # Example usage
 # words = ["apple", "banana", "apple", "cherry"]
