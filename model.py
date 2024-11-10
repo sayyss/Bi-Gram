@@ -23,18 +23,18 @@ class Bigram:
         logits = torch.matmul(x, self.matrix)
         return logits
 
-    def generate(self, context, length, word_to_i, i_to_word):
+    def generate(self, context, length):
         # given a word, get length amount of words from model and return
         # returns  
 
         output = []
         for i in range(length):
-            context = torch.tensor([word_to_i[context]])
+            context = torch.tensor([self.vocab.index(context)])
             context = one_hot_encode(context, len(self.vocab))
             next_word = self.forward(context)
             index = torch.argmax(self.softmax(next_word))
-            output.append(i_to_word[index.item()])
-            context = i_to_word[index.item()]
+            output.append(self.vocab[index.item()])
+            context = self.vocab[index.item()]
 
 
         return ' '.join(output)

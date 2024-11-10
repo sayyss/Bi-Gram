@@ -4,12 +4,18 @@ import torch
 from model import Bigram
 
 
-def train(text_file):
+def train(text_file, **kwargs):
 
     # prepare vocab
     # create model
     # train model
     # return model
+
+    defaults = {
+            "epochs": 10
+            "lr": 0.01
+    }
+    defaults.update(kwargs)
 
     words, vocab = prepare_data(text_file)
 
@@ -25,10 +31,10 @@ def train(text_file):
     x = one_hot_encode(x, vocab_size)
     y = one_hot_encode(y, vocab_size)
 
-    epochs = 50
+    epochs = defaults['epochs']
     model = Bigram(vocab)
     CEL = torch.nn.CrossEntropyLoss()
-    lr = 0.01
+    lr = defaults['lr']
     optimizer = torch.optim.SGD(model.parameters, lr, momentum=0.9)
 
     for i in range(epochs):
@@ -38,10 +44,5 @@ def train(text_file):
         loss.backward()
         optimizer.step()
 
-
-    print(model.generate("there", 10, words_to_i, i_to_words))
-
     return model
 
-
-model = train("random_input.txt")
