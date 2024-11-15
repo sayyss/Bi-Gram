@@ -19,7 +19,10 @@ def one_hot_encode(x, n):
     return
 
 
-
+### Takes in x: tensor([])
+### Returns a tensor of the same size as x with tanh activation applied
+def tanh(x):
+    return
 
 
 
